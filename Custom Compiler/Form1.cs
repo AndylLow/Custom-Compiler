@@ -18,18 +18,24 @@ namespace Custom_Compiler
         {
             InitializeComponent();
         }
-
+        public string evaluate()
+        {
+            object result = CSharpScript.EvaluateAsync(textBox1.Text);
+            return result.ToString();
+        }
         private void button1_Click(object sender, EventArgs e)
         {
+           
+            
             try
             {
-                textBox2.Text = await CSharpScript.;
+                textBox2.Text = evaluate();
             }
             catch (Exception ex)
             {
-
                 textBox2.Text=ex.Message;
             }
+            
         }
     }
 }
